@@ -1,7 +1,7 @@
 const express = require("express")
-const routes = express.Router()
-
 const PlanetController = require("./controllers/PlanetController")
+
+const routes = express.Router()
 
 routes.get("/planets", PlanetController.index)
 routes.get("/planets/id/:id", PlanetController.showId)

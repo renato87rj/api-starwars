@@ -1,7 +1,7 @@
-const mongoose = require("mongoose")
+const { Schema, model} = require("mongoose")
 const mongoosePaginate = require("mongoose-paginate")
 
-const PlanetSchema = new mongoose.Schema({
+const PlanetSchema = new Schema({
     name: {
         type: String,
         require: true
@@ -14,6 +14,9 @@ const PlanetSchema = new mongoose.Schema({
         type: String,
         require: true 
     },
+    films: [{
+        type: String
+    }],
     createdAt: {
         type: Date, 
         default: Date.now
@@ -21,4 +24,4 @@ const PlanetSchema = new mongoose.Schema({
 })
 
 PlanetSchema.plugin(mongoosePaginate)
-mongoose.model("Planet", PlanetSchema)
+module.exports = model("Planet", PlanetSchema)
